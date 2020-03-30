@@ -21,7 +21,7 @@ services:
     build:
       context: .
       args:
-        centos: $OS6
+        centos: 6
       dockerfile: Dockerfile.math
   centos6tomcrypt:
     volumes:
@@ -30,7 +30,7 @@ services:
     build:
       context: .
       args:
-        centos: $OS6
+        centos: 6
       dockerfile: Dockerfile.crypt
 
 volumes:
