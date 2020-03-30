@@ -1,0 +1,22 @@
+version: 2.1
+
+orbs:
+  docker-rpmbuild: aursu/rpmbuild@1.0.0
+
+workflows:
+  libtom:
+    jobs:
+      - docker-rpmbuild/rpmbuild:
+          name: centos7tommath
+          base_file: docker-compose.yml
+          base_service: centos7tommath
+          build_service: centos7tommath
+          bintray_uploader: centos7bintray
+      - docker-rpmbuild/rpmbuild:
+          name: centos7tomcrypt
+          base_file: docker-compose.yml
+          base_service: centos7tomcrypt
+          build_service: centos7tomcrypt
+          bintray_uploader: centos7bintray
+          requires:
+            - centos7tommath
