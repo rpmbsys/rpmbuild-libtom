@@ -20,3 +20,17 @@ workflows:
           bintray_uploader: centos7bintray
           requires:
             - centos7tommath
+      - docker-rpmbuild/rpmbuild:
+          name: centos6tommath
+          base_file: docker-compose.yml
+          base_service: centos6tommath
+          build_service: centos6tommath
+          bintray_uploader: centos6bintray
+      - docker-rpmbuild/rpmbuild:
+          name: centos6tomcrypt
+          base_file: docker-compose.yml
+          base_service: centos6tomcrypt
+          build_service: centos6tomcrypt
+          bintray_uploader: centos6bintray
+          requires:
+            - centos6tommath
