@@ -1,11 +1,14 @@
 Name:           libtommath
-Version:        1.1.0
-Release:        2%{?dist}
+Version:        1.2.0
+Release:        3%{?dist}
 Summary:        A portable number theoretic multiple-precision integer library
 License:        Public Domain
 URL:            http://www.libtom.net/
 
 Source0:        https://github.com/libtom/%{name}/archive/v%{version}.tar.gz#/%{name}-%{version}.tar.gz
+
+BuildRequires:  make
+BuildRequires:  libtool
 
 %description
 A free open source portable number theoretic multiple-precision integer library
@@ -53,6 +56,12 @@ find %{buildroot} -name '*.a' -delete
 %{_libdir}/pkgconfig/*.pc
 
 %changelog
+* Mon Jan 25 2021 Than Ngo <than@redhat.com> - 1.2.0-3
+- Add missing BRs
+
+* Thu Apr 09 2020 Gerd Pokorra <gp@zimt.uni-siegen.de> - 1.2.0-1
+- Update to 1.2.0.
+
 * Mon Mar 30 2020 Alexander Ursu <alexander.ursu@gmail.com> - 1.1.0-2
 - Do not build documentation on RHEL/CentOS.
 
